@@ -1,3 +1,4 @@
+
 import java.io.*;
 
 import java.text.*;
@@ -23,13 +24,13 @@ public class StudentList
 
                 BufferedReader bufferreader = new BufferedReader (new InputStreamReader (new FileInputStream("students.txt")));
 
-                String r = bufferreader.readLine ();
+                String string = bufferreader.readLine ();
 
-                String i[] = r.split (",");
+                String studentList[] = string.split (",");
 
-                for (String j:i){
+                for (String student:studentList){
 
-                    System.out.println (j);
+                    System.out.println (student);
                 }
 
             }
@@ -52,17 +53,17 @@ public class StudentList
 
                 BufferedReader bufferreader = new BufferedReader (new InputStreamReader (new FileInputStream("students.txt")));
 
-                String r = bufferreader.readLine ();
+                String string = bufferreader.readLine ();
 
-                System.out.println (r);
+                System.out.println (string);
 
-                String i[] = r.split (",");
+                String i[] = string.split (",");
 
-                Random x = new Random ();
+                Random random = new Random ();
 
-                int y = x.nextInt ();
+                int randomIndex = random.nextInt ();
 
-                System.out.println (i[y]);
+                System.out.println (i[randomIndex]);
 
             } 
             catch (Exception e)
@@ -83,17 +84,17 @@ public class StudentList
 
             BufferedWriter bufferreader = new BufferedWriter (new FileWriter ("students.txt", true));
 
-            String t = args[0].substring (1);
+            String string = args[0].substring (1);
 
-            Date d = new Date ();
+            Date date = new Date ();
 
-            String df = "dd/mm/yyyy-hh:mm:ss a";
+            String dateFormate = "dd/mm/yyyy-hh:mm:ss a";
 
-            DateFormat dateFormat = new SimpleDateFormat (df);
+            DateFormat dateFormat = new SimpleDateFormat (dateFormate);
 
-            String fd = dateFormat.format (d);
+            String fd = dateFormat.format (date);
 
-            bufferreader.write (", " + t + "\nList last updated on " + fd);
+            bufferreader.write (", " + date + "\nList last updated on " + fd);
 
             bufferreader.close ();
 
